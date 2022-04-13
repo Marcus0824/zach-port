@@ -4,3 +4,8 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin Arimo($weight) {
+    font-weight:weight;
+    font-family: 'Arimo', sans-serif;
+}

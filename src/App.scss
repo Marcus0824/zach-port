@@ -31,5 +31,6 @@
 @import "./stylesrc/generalmixins.scss";
 
 .App {
-  @include flex_center
+  @include flex_center();
+  @include Arimo(bold);
 }
