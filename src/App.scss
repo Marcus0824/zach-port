@@ -28,3 +28,8 @@
   color: #61dafb;
 }
 
+@import "./stylesrc/generalmixins.scss";
+
+.App {
+  @include flex_center
+}
