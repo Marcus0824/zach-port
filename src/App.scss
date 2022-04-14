@@ -30,7 +30,12 @@
 
 @import "./stylesrc/generalmixins.scss";
 
-.App {
+// .App {
+//   @include flex_center();
+//   @include Arimo(bold);
+// }
+
+.homepage {
   @include flex_center();
   @include Arimo(bold);
 }

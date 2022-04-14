@@ -1,0 +1,7 @@
+@import "../../stylesrc/generalmixins.scss";
+
+.title {
+    @include flex_center();
+    @include Arimo(lighter);
+    font-size : 7vh;
+}
