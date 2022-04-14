@@ -1,7 +1,23 @@
 @import "../../stylesrc/generalmixins.scss";
 
-.title {
+
+.page {
+    @include Arimo(bolder);
     @include flex_center();
-    @include Arimo(lighter);
-    font-size : 7vh;
+    flex-direction:column;
+    font-size : 5vh;
 }
+
+.text {
+    text-align: center;
+}
+
+.line {
+    background-color:black;
+    display:flex;
+    width:15vh;
+    height:1px;
+}
+
+
+
