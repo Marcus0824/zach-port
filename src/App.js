@@ -5,7 +5,7 @@ import FrontPage from './components/FrontPage.js'
 function App() {
   return (
         <div>
-          <FrontPage></FrontPage>
+          <FrontPage />
         </div>
 
   )
