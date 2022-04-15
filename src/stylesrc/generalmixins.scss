@@ -1,13 +1,21 @@
 @import "./fonts.scss";
 
+$accent: #ef4824;
+$light: #f1f2ee;
+$dark: #222218;
+$medium: #433636;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 @mixin flex_center {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
 
 @mixin Arimo($weight) {
     font-family: 'Arimo', sans-serif;

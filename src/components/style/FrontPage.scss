@@ -3,13 +3,29 @@
 
 .page {
     @include Arimo(bolder);
-    @include flex_center();
+    @include flex_center;
     flex-direction:column;
     font-size : 5vh;
 }
 
+.bruh {
+    @include flex_center;
+    flex-direction:column;
+    height:fit-content;
+}
 .text {
     text-align: center;
+}
+
+a {color: inherit;}
+
+.smalltext {
+    text-align: center;
+    position: absolute;
+    bottom: 5vh;
+    font-size:2.5vh;
+    text-decoration: none;
+    color: inherit;
 }
 
 .line {
