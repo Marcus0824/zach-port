@@ -33,8 +33,8 @@ const FrontPage = () => {
           </div>
         </motion.div>
 
-        <Link to="home" className="smalltext">
-          <motion.div className='bruh' animate={{opacity: [0, 1], color: colors[+(!transitionColor)]}}>
+        <Link to="home" className='EnterButton'>
+          <motion.div  animate={{opacity: [0, 1], color: colors[+(!transitionColor)]}}>
             ENTER
           </motion.div>
         </Link>

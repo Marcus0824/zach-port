@@ -8,25 +8,22 @@
     font-size : 5vh;
 }
 
-.bruh {
+.EnterButton {
     @include flex_center;
     flex-direction:column;
     height:fit-content;
+    text-decoration: none;
+    position: absolute;
+    bottom: 5vh;
+    text-align: center;
+    font-size:2.5vh;
 }
+
+
 .text {
     text-align: center;
 }
 
-a {color: inherit;}
-
-.smalltext {
-    text-align: center;
-    position: absolute;
-    bottom: 5vh;
-    font-size:2.5vh;
-    text-decoration: none;
-    color: inherit;
-}
 
 .line {
     background-color:black;
