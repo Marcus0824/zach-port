@@ -20,7 +20,6 @@ const colors = {
   orange: "#ef4824"
 };
 
-
 // This can definitely can be more efficient linewise, just experimenting for future, more complex animations
 const colorShift = {
   invisible: {
@@ -52,37 +51,36 @@ const colorShift = {
       }
     }
   },
+  small: {
+    scale: 1
+  },
+  large: {
+    scale: 1.17,
+  },
   blackline: {
-    scale: 1,
     backgroundColor: colors.black,
-    transition: {
-      type: "tween",
-      duration: 0.35
-    }
   },
   orangeline: {
-    scale: 1.17,
     backgroundColor: colors.orange,
-    transition: {
-      type: "tween",
-      duration: 0.35
-    }
+  },
+  transition: {
+    type: "tween",
+    duration: 0.35
   }
+};
 
-}
+const Logo = ({colorTrigger, lineTrigger}) => {
+  const [colorState, setColorState] = colorTrigger;
+  const [lineState, setLineState] = lineTrigger;
 
-
-const Logo = ({reactTo}) => {
-  const [state, setState] = reactTo;
-  
   return (
     <motion.div 
       variants={colorShift}
       initial={["invisible"]}
-      animate={["visible", state == true ? "orange" : "black"]}
+      animate={["visible", colorState == true ? "orange" : "black"]}
       //animate={{opacity: [0, 1], color: colorStates[+state]}} 
-      onHoverStart={() => {setState(!state)}}
-      onHoverEnd={() => {setState(!state)}}
+      onHoverStart={() => {setColorState(!colorState); setLineState(!lineState)}}
+      onHoverEnd={() => {setColorState(!colorState); setLineState(!lineState)}}
       className="logo"
     >
       <div className="text">
@@ -93,7 +91,7 @@ const Logo = ({reactTo}) => {
         className="line"
         //animate={{opacity: [0, 1], backgroundColor: colors[+state], scale: 1+(state*0.17)}}
         variants={colorShift}
-        animate={[state == true ? "orangeline" : "blackline"]}
+        animate={[colorState == true ? "orangeline" : "blackline", lineState == true ? "large" : "small"]}
       />
 
       <div className="text">
@@ -103,8 +101,8 @@ const Logo = ({reactTo}) => {
   );
 }
 
-const EnterButton = ({reactTo}) => {
-  const [state, setState] = reactTo;
+const EnterButton = ({colorTrigger}) => {
+  const [state, setState] = colorTrigger;
 
   return (
     <Link to="home" className='EnterButton'>
@@ -122,12 +120,12 @@ const EnterButton = ({reactTo}) => {
 }
 
 const FrontPage = () => {
-  const hover = useState(0);
-  
+  const colorHover = useState(0);
+  const lineHover = useState(0);
   return (
       <div className="page">
-        <Logo reactTo={hover} />
-        <EnterButton reactTo={hover}/>
+        <Logo colorTrigger={colorHover} lineTrigger={lineHover}/>
+        <EnterButton colorTrigger={colorHover}/>
       </div>
   )
 }
