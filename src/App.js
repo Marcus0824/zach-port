@@ -1,6 +1,7 @@
 
 import './App.scss';
 import FrontPage from './components/FrontPage'
+import Admin from './components/Admin'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
@@ -14,9 +15,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<FrontPage />} />
-              <Route path="/home" element={<div>
-                  <h1>PICTURES</h1>
-              </div>} />
+              <Route path="/home" element={<Admin />} />
             </Routes>
           </Router>
         </div>
