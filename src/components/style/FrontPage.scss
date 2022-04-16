@@ -8,6 +8,12 @@
     font-size : 5vh;
 }
 
+.logo {
+    @include flex_center;
+    flex-direction: column;
+    height: fit-content;
+}
+
 .EnterButton {
     @include flex_center;
     flex-direction:column;
@@ -28,8 +34,8 @@
 .line {
     background-color:black;
     display:flex;
-    width:15vh;
-    height:1px;
+    width:85%;
+    height:0.25vh;
 }
 
 
