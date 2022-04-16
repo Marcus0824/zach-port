@@ -27,6 +27,7 @@ const Admin = () => {
 
     return (
         <div>
+            <img ref={previewImage} src={imageSource} style={{width: "10vw"}}/>
             <input ref={fileUpload} id="imageUpload" onChange={() => {refreshSource()}} type="file" accept="image/png, image/jpeg" style={{display: 'none', cursor: "pointer"}}></input>
             <label htmlFor="imageUpload" style={{cursor: "pointer"}} >Add Image</label>
             <h1 ref={fileName}>bruhbruh</h1>
