@@ -1,7 +1,5 @@
-
 import React, { useRef, useState } from "react";
 import { uploadImage } from "./Firebase";
-
 
 const Admin = () => {
     const previewImage = useRef(null);

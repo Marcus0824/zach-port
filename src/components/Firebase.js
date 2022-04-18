@@ -1,10 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, AuthError} from 'firebase/auth';
+import {getAuth } from 'firebase/auth';
 import {getStorage, ref, uploadBytes } from 'firebase/storage';
-import {getFirestore, query, getDocs, collection, where, addDoc, FirestoreError} from 'firebase/firestore'
-import { useUploadFile } from 'react-firebase-hooks/storage';  
+import {getFirestore} from 'firebase/firestore'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -39,9 +38,7 @@ const uploadImage = async (file) => {
         });
       }
     }
-    
-    
-  }
+}
 
   export {
       auth,

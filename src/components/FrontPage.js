@@ -63,10 +63,6 @@ const colorShift = {
   orangeline: {
     backgroundColor: colors.orange,
   },
-  transition: {
-    type: "tween",
-    duration: 0.35
-  }
 };
 
 const Logo = ({colorTrigger, lineTrigger}) => {
