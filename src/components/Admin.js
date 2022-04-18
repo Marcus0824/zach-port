@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { uploadImage } from "./Firebase";
 
 const Admin = () => {

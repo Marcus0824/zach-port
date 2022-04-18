@@ -1,9 +1,9 @@
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { motion, useMotionValue } from "framer-motion"
 import './style/FrontPage.scss'
 import { Link } from "react-router-dom";
-
+import { GalleryContext } from "./Gallery";
 
 
 /*
@@ -118,10 +118,16 @@ const EnterButton = ({colorTrigger}) => {
 const FrontPage = () => {
   const colorHover = useState(0);
   const lineHover = useState(0);
+  const [images, fetchImages, loaded] = useContext(GalleryContext);
+
+    useEffect(() => {
+      fetchImages();
+    }, []);
+
   return (
       <div className="page">
         <Logo colorTrigger={colorHover} lineTrigger={lineHover}/>
-        <EnterButton colorTrigger={colorHover}/>
+        {loaded ? <EnterButton colorTrigger={colorHover}/> : null}
       </div>
   )
 }

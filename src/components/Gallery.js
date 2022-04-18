@@ -1,13 +1,15 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, createContext, useContext } from "react"
 import { storage } from './Firebase'
 import { getDownloadURL, listAll, ref } from 'firebase/storage'
 
+
+const GalleryContext = createContext([]);
 
 const useArray = (initialValue = []) => {
   const [value, setValue] = useState(initialValue);
 
   const push = element => {
-    setValue(oldValue => [...oldValue, element]);
+    setValue(oldValue => [...new Set([...oldValue, element])]);
   };
 
   const remove = index => {
@@ -16,41 +18,35 @@ const useArray = (initialValue = []) => {
 
   const isEmpty = () => value.length === 0;
 
-  return { value, setValue, push, remove, isEmpty };
+  return [ value, setValue, push, remove, isEmpty ];
 };
 
 const useImages = () => {
     const [loaded, setLoaded] = useState(false);
-    const [images, setImages] = useState([]);
+    const [images, setImages, pushImage, removeImage, imagesEmpty] = useArray();
+
+    const fetchImages = async () => {
+        const imageFolder = ref(storage, "images/");
+        const imageList = await listAll(imageFolder);
+                
+        for (const imageRef of imageList.items) {
+            const link = await getDownloadURL(imageRef);
+            pushImage(link);
+        }
+
+        setLoaded(true);
+    }
 
     useEffect(() => {
-        const fetchImages = () => {
-            const imageFolder = ref(storage, "images/");
-            listAll(imageFolder).then((folderItems) => {
-                folderItems.items.forEach((imageRef) => {
-                    getDownloadURL(imageRef).then((imageLink) => {
-                        setImages((prevImages) => [...new Set([...prevImages, imageLink])]);
-                    });
-                });
-            });
-        }
+        console.log("Loaded: " + loaded);
+    }, [loaded]);
 
-        if (!loaded) {
-            setLoaded(true);
-            fetchImages();
-        }
-        
-    }, []);
-
-
-    return images;
+    return [images, fetchImages, loaded];
 }
 
 
 const Gallery = () => {
-    const imageContainer = useRef(0);
-    const images = useImages();
-
+    const [images, fetchImages] = useContext(GalleryContext);
     // ON LOAD
     useEffect(() => {
         
@@ -58,9 +54,10 @@ const Gallery = () => {
 
     return (
         <div>
-            <div ref={imageContainer}>
-                {images.map((link) => 
-                    <img width={200} src={link} />
+            <button onClick={() => {fetchImages()}}>Fetch</button>
+            <div>
+                {images.map((link, ID) => 
+                    <img key={ID} width={300} src={link} />
                 )}
             </div>
         </div>
@@ -68,4 +65,5 @@ const Gallery = () => {
 }
 
 
-export default Gallery
+export default Gallery;
+export { GalleryContext, useImages, useArray };
