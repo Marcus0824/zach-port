@@ -46,10 +46,12 @@ const useImages = () => {
 
 
 const Gallery = () => {
-    const [images, fetchImages] = useContext(GalleryContext);
+    const [images, fetchImages, loaded] = useContext(GalleryContext);
     // ON LOAD
     useEffect(() => {
-        
+        if (!loaded) {
+            fetchImages();
+        }
     }, []);
 
     return (
