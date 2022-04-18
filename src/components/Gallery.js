@@ -3,6 +3,22 @@ import { storage } from './Firebase'
 import { getDownloadURL, listAll, ref } from 'firebase/storage'
 
 
+const useArray = (initialValue = []) => {
+  const [value, setValue] = useState(initialValue);
+
+  const push = element => {
+    setValue(oldValue => [...oldValue, element]);
+  };
+
+  const remove = index => {
+    setValue(oldValue => oldValue.filter((_, i) => i !== index));
+  };
+
+  const isEmpty = () => value.length === 0;
+
+  return { value, setValue, push, remove, isEmpty };
+};
+
 const useImages = () => {
     const [loaded, setLoaded] = useState(false);
     const [images, setImages] = useState([]);
