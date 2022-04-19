@@ -1,13 +1,25 @@
 @import "../../stylesrc/generalmixins.scss";
 
 .Gallery {
+    position:absolute;
+    left:50%;
+    transform: translate(-50%, 25%);
     display:flex;
-    width:max-content;
-    flex-direction:column;
+    flex-direction:row;
     flex-wrap:wrap;
-    height:200vh;
+    width:100vw;
+    justify-content: space-around;
+    align-items:center;
+    row-gap:5rem;
 }
 
 .Image-panel {
-    margin:1rem;
+    display:flex;
+    justify-content: center;
+    margin:0px;
+    width:fit-content;
+    height:fit-content;
+    flex-grow:1;
+    
+    
 }
