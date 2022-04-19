@@ -14,7 +14,7 @@ const ImagePanel = (props) => {
             }}
         >
         
-            <img  key={props.ID} width={300} src={props.link} />
+            <img  key={props.ID} width={"300em"} src={props.link} />
         </motion.div>
       </>
     

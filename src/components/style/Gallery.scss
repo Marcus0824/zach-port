@@ -28,7 +28,7 @@ flex-direction: column;
 
 flex-wrap: wrap;
 
-max-height: 175vh;
+max-height: 1200px;
 justify-content: center;
 align-items: center;
 div {
@@ -45,9 +45,11 @@ div {
 }
 
 // Panel flex stuff
+
 .Image-panel {
     display:flex;
     justify-content: center;
     width:300px;
     margin:5px;
+
 }
