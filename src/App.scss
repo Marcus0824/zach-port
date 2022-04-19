@@ -39,3 +39,7 @@
   @include flex_center();
   @include Arimo(bold);
 }
+
+body {
+  overflow-x:hidden;
+}

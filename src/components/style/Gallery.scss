@@ -1,0 +1,13 @@
+@import "../../stylesrc/generalmixins.scss";
+
+.Gallery {
+    display:flex;
+    width:max-content;
+    flex-direction:column;
+    flex-wrap:wrap;
+    height:200vh;
+}
+
+.Image-panel {
+    margin:1rem;
+}

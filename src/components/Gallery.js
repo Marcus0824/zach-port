@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, createContext, useContext } from "react"
+import "./ImagePanel.js"
 import { storage } from './Firebase'
 import { getDownloadURL, listAll, ref } from 'firebase/storage'
+import ImagePanel from "./ImagePanel.js";
 
 
 const GalleryContext = createContext([]);
@@ -57,9 +59,9 @@ const Gallery = () => {
     return (
         <div>
             <button onClick={() => {fetchImages()}}>Fetch</button>
-            <div>
+            <div className="Gallery">
                 {images.map((link, ID) => 
-                    <img key={ID} width={300} src={link} />
+                    <ImagePanel ID={ID} link={link}></ImagePanel>
                 )}
             </div>
         </div>
