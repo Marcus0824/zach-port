@@ -8,36 +8,40 @@
     display:flex;
     flex-direction:row;
     flex-wrap:wrap;
-    width:50vw;
+    width:100vw;
     //justify-content: space-around;
     //align-items:center;
     row-gap:5rem;
 }
 
+
+
 // Code for mosaic
 // Still working on it lol
 .Gallery{
-
-
+width:fit-content;    
+position:absolute;
+left:50%;
+transform: translate(-150%, 5%);
 display: flex;
 flex-direction: column;
-width:fit-content;
+
 flex-wrap: wrap;
 
 max-height: 175vh;
-//justify-content: center;
+justify-content: center;
 align-items: center;
 div {
   flex: 1 0 auto;
  
 } 
-@for $i from 1 through 36 { 
-  div:nth-child(#{$i}) {
-    $h: (random(400) + 100) + px;
-    //height: $h;
-    line-height: $h;
-  }
-}
+// @for $i from 1 through 1 { 
+//   div:nth-child(#{$i}) {
+//     $h: (random(400) + 100) + px;
+//     //height: $h;
+//     line-height: $h;
+//   }
+// }
 }
 
 // Panel flex stuff
@@ -45,5 +49,5 @@ div {
     display:flex;
     justify-content: center;
     width:300px;
-    margin:10px;
+    margin:5px;
 }
