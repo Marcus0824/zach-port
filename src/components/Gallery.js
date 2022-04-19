@@ -3,6 +3,7 @@ import "./ImagePanel.js"
 import { storage } from './Firebase'
 import { getDownloadURL, listAll, ref } from 'firebase/storage'
 import ImagePanel from "./ImagePanel.js";
+import { motion, useMotionValue } from "framer-motion"
 
 
 const GalleryContext = createContext([]);
@@ -59,6 +60,9 @@ const Gallery = () => {
     return (
         <div>
             <button onClick={() => {fetchImages()}}>Fetch</button>
+
+
+
             <div className="Gallery">
                 {images.map((link, ID) => 
                     <ImagePanel ID={ID} link={link}></ImagePanel>
